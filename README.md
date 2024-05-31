@@ -6,8 +6,6 @@ FunctionOpcoder is a small program I wrote for python3 that works by taking a li
 and using a specified dictionary, represents those opcodes as functions.
 Primarly intended for small file size representing for programs with large amounts of functions.
 
-Format:
-
 Example File:
 ```
 0x1:0x6:10:20
@@ -16,7 +14,7 @@ Example File:
 0x4:R0x1
 ```
 
-Each line in the file represents a single Function Call with the first column being the address, the second being the opcode, and the rest of the columns being the Function
+Each line in the file represents a single Function Call with the first column being the address, the second being the opcode, and the rest of the columns being the function arguments.
 
 Example Python File for Above File:
 ```
@@ -26,7 +24,11 @@ Opcodes = {
   0x30: "CUBE"
 }
 
+#Parameters for readdata: directory(string), read_out_final_memory(bool)(defaults to False), seperator(string)(defaults to ":")
+
 FunctionOpcoder.readdata("/path/to/file")
+
+#Parameters for run: read_out_commands(bool)(defaults to False)
 
 FunctionOpcoder.run()
 
