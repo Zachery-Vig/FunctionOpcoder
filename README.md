@@ -15,6 +15,8 @@ FunctionOpcoder is a small python program that works by taking a list of opcodes
 
 Each line in the file represents a single Function Call with the first column being the address, the second being the opcode, and the rest of the columns being the function arguments.
 
+Note: Addresses can be represted as decimal and hexadecimal and opcodes can be represented as a string,decimal, or hexadecimal
+
 ***Example Python File for Above File:***
 ```
 Opcodes = {
