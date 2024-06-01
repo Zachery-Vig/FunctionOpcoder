@@ -13,19 +13,19 @@ FunctionOpcoder is a small python program that works by taking a list of opcodes
 0x4:R0x1
 ```
 
-Each line in the file represents a single Function Call with the first column being the address, the second being the opcode, and the rest of the columns being the function arguments.
+Each line in the file represents a single Function Call with the first column containing the addresses for their lines function call which is used to tell which order to call the functions in, the second being the opcodes which represent functions located in the main python program, and the rest of the columns being the function arguments, each of thease sections are seperated by a ":" but can be changed in the main python file. The last line at address 0x4 is a special case as its a repeat opcode meaning it copys the data contained in a speicifed address, in this case it copys from 0x1 and the data at that address is 0x6:10:20 so the reader reads the line as 0x4:0x6:10:20.
 
-Note: Addresses can be represted as decimal and hexadecimal and opcodes can be represented as a string,decimal, or hexadecimal
+Note: Addresses can be represented as a decimal or hexadecimal value and opcodes can be represented as a string, decimal, or hexadecimal value as indicated by the main python file.
 
 ***Example Python File for Above File:***
 ```
-Opcodes = {
+FunctionOpcoder.Opcodes = {
   0x10: "ADD_TWO_NUMBERS",
-  0x20: 'PRINT_5_TIMES",
+  0x20: "PRINT_5_TIMES",
   0x30: "CUBE"
 }
 
-#Parameters for readdata: directory(string), read_out_final_memory(bool)(defaults to False), seperator(string)(defaults to ":")
+#Parameters for readdata: directory (string) (required), read_out_final_memory (bool) (defaults to False), seperator (string) (defaults to ":")
 
 FunctionOpcoder.readdata("/path/to/file")
 
@@ -35,7 +35,6 @@ FunctionOpcoder.run()
 
 ```
 
-
-
+First a dictionary called Opcodes stores each opcodes corresponding function name. Next readdata is called which reads the data from the specified directory, in this case from the example file. And then run() is called which actually runs the function calls read from the file. 
 
 
